@@ -10,6 +10,13 @@ The idea is simple:
 Gamification increases attention, retention, and emotional connection.
 This project demonstrates not only front-end development skills, but also creative marketing thinking and conversion-focused UX.
 
+
+<img width="814" height="841" alt="Screenshot 2025-11-19 at 1 17 41 PM" src="https://github.com/user-attachments/assets/47fb5c75-f082-4498-be5d-3eb5f4e030fd" />
+
+
+
+
+
 🧠 Why Gamification Works
 
 (and why this project is effective for lead generation)
