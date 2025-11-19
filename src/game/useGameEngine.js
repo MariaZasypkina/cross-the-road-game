@@ -183,7 +183,7 @@ export function useGameEngine(canvasRef) {
         for (let col = 0; col < 5; col++) {
           let sprite = sprites.grass;
 
-          if (row > 0 && row < 4) sprite = sprites.stone;
+          if (row > 0 && row < 5) sprite = sprites.stone;
           if (row === 0) sprite = sprites.grass;
           const x = toPixelX(col);
           const y = row * TILE_HEIGHT - 20;
@@ -193,10 +193,11 @@ export function useGameEngine(canvasRef) {
     }
 
     function drawEntities() {
+      const princess = princessRef.current;
       const player = playerRef.current;
       const enemies = enemiesRef.current;
+
       const key = keyRef.current;
-      const princess = princessRef.current;
 
       // Draw enemies
       enemies.forEach((enemy) => {
@@ -204,6 +205,15 @@ export function useGameEngine(canvasRef) {
         const y = toPixelY(enemy.y) + 30;
         ctx.drawImage(sprites.enemy, x, y, TILE_WIDTH, TILE_HEIGHT + 30);
       });
+
+      // Draw finish tile (princess)) at the top
+      ctx.drawImage(
+        sprites.princess,
+        toPixelX(princess.col),
+        toPixelY(princess.row) + 30,
+        TILE_WIDTH,
+        TILE_HEIGHT + 40
+      );
 
       // Draw key if not collected
       if (!key.collected) {
@@ -215,16 +225,6 @@ export function useGameEngine(canvasRef) {
           TILE_HEIGHT
         );
       }
-
-      // Draw finish tile (princess)) at the top
-      ctx.drawImage(
-        sprites.princess,
-        toPixelX(princess.col),
-        toPixelY(princess.row) + 20,
-        TILE_WIDTH,
-        TILE_HEIGHT + 26
-      );
-
       // Draw player
       ctx.drawImage(
         sprites.player,
@@ -241,17 +241,17 @@ export function useGameEngine(canvasRef) {
       ctx.fillRect(0, 0, CANVAS_WIDTH, 40);
 
       ctx.fillStyle = "#ffffff";
-      ctx.font = "18px system-ui, sans-serif";
+      ctx.font = "12px system-ui, sans-serif";
       ctx.textBaseline = "middle";
       ctx.fillText(`Level: ${LEVELS[levelRef.current].id}`, 10, 20);
       ctx.fillText(`Lives: ${lives}`, 120, 20);
 
       if (statusRef.current === "won") {
-        ctx.fillText("You got the key and reached the princess!", 220, 20);
+        ctx.fillText("You got the coin and reached the finish!", 282, 20);
       } else if (statusRef.current === "lost") {
         ctx.fillText("Game over. Press Restart.", 220, 20);
       } else if (statusRef.current === "finished") {
-        ctx.fillText("All levels complete! ❤️", 220, 20);
+        ctx.fillText("All levels complete!", 220, 20);
       }
       ctx.restore();
     }

@@ -104,8 +104,8 @@ function Game() {
           and right.
         </p>
         <p style={{ marginTop: 0 }}>
-          If you touch a bug, you lose a life and start from the bottom again.
-          Pick up the key, then reach the princess at the top to unlock the door
+          If you touch a croco, you lose a life and start from the bottom again.
+          Pick up the coin, then reach the finish at the top to unlock the door
           to the next level.
         </p>
 
@@ -117,7 +117,7 @@ function Game() {
 
         {isFinished && (
           <p style={{ marginTop: "8px", fontWeight: 600 }}>
-            You completed all levels and won the princess&apos;s heart! ❤️
+            You completed all levels and won a discount coin three times!
           </p>
         )}
       </div>

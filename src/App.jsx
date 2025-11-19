@@ -12,7 +12,7 @@ function App() {
         alignItems: "center",
         justifyContent: "center",
         fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
-        background: "linear-gradient(135deg, #1d3557, #457b9d)",
+        background: "linear-gradient(135deg, #ab58dcff, #99919eff)",
         color: "#f1faee",
         padding: "20px",
       }}
