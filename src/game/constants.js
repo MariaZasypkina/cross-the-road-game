@@ -16,7 +16,7 @@ export const PLAYER_START_ROW = 5;
 export const LEVELS = [
   {
     id: 1,
-    enemyRows: [1, 2],
+    enemyRows: [1, 3],
     enemySpeedRange: [120, 220],
     keyRow: 3,
     keyCol: 4,
@@ -30,7 +30,7 @@ export const LEVELS = [
   },
   {
     id: 3,
-    enemyRows: [1, 2, 3],
+    enemyRows: [1, 2, 3, 4],
     enemySpeedRange: [180, 320],
     keyRow: 1,
     keyCol: 2,

@@ -24,10 +24,10 @@ function Game() {
         alignItems: "center",
       }}
     >
-      <h1 style={{ margin: 0, fontSize: "28px" }}>Cross the Road</h1>
+      <h1 style={{ margin: 0, fontSize: "38px" }}>Want a discount? </h1>
       <p style={{ margin: 0, opacity: 0.9, textAlign: "center" }}>
-        Get through all three levels, avoid the bugs, grab the key and reach the
-        bug princess to win her heart.
+        Get through all three levels, avoid the crocos, grab the coin and reach the
+       finish to win a discount
       </p>
 
       <GameCanvas
