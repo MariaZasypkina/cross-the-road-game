@@ -50,6 +50,9 @@ After completing all three levels, the discount machine becomes available.
 After finishing the game, the user enters a bonus stage — the Interactive Discount Vending Machine.
 The player has 3 coins (one per completed level), and each coin allows one random draw from a virtual deck.
 
+<img width="692" height="724" alt="Screenshot 2025-11-19 at 1 39 36 PM" src="https://github.com/user-attachments/assets/3b090516-4573-4465-bb20-434653c99f66" />
+
+
 🎁 Probability Distribution
 
 The deck contains 20 virtual discount cards:
@@ -65,6 +68,9 @@ The total discount is calculated and displayed immediately
 The vending machine includes animated UI elements and custom artwork
 This creates an enjoyable “loot-box” effect without being aggressive or manipulative.
 
+<img width="693" height="730" alt="Screenshot 2025-11-19 at 1 39 52 PM" src="https://github.com/user-attachments/assets/cbf2e333-0a11-4c31-89f6-5845b7ea1225" />
+
+
 💌 Conversion Flow
 
 After the player uses all three draws, a CTA button appears:
@@ -73,6 +79,9 @@ Clicking opens a pre-filled email encouraging the user to contact the brand:
 Subject: I won a discount!
 Body: Hi! I won a discount and would like to order a website.
 This removes friction, encourages outreach, and converts play into communication.
+
+<img width="827" height="391" alt="Screenshot 2025-11-16 at 9 52 06 PM" src="https://github.com/user-attachments/assets/8ab6d3eb-20d1-452a-b59f-62e0df7c1b02" />
+
 
 🛠 Tech Stack
 
