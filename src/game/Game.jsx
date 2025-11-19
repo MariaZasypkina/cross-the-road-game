@@ -26,8 +26,8 @@ function Game() {
     >
       <h1 style={{ margin: 0, fontSize: "38px" }}>Want a discount? </h1>
       <p style={{ margin: 0, opacity: 0.9, textAlign: "center" }}>
-        Get through all three levels, avoid the crocos, grab the coin and reach the
-       finish to win a discount
+        Get through all three levels, avoid the crocos, grab the coin and reach
+        the finish to win a discount
       </p>
 
       <GameCanvas
