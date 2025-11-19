@@ -178,12 +178,13 @@ export function useGameEngine(canvasRef) {
     }
 
     function drawBackground() {
-      // 0 row - water, 1-3 stone, 4-5 grass
+      // 0 row - grass, 1-3 stone, 4-5 grass
       for (let row = 0; row < 6; row++) {
         for (let col = 0; col < 5; col++) {
           let sprite = sprites.grass;
-          if (row === 0) sprite = sprites.water;
+
           if (row > 0 && row < 4) sprite = sprites.stone;
+          if (row === 0) sprite = sprites.grass;
           const x = toPixelX(col);
           const y = row * TILE_HEIGHT - 20;
           ctx.drawImage(sprite, x, y);
@@ -200,8 +201,8 @@ export function useGameEngine(canvasRef) {
       // Draw enemies
       enemies.forEach((enemy) => {
         const x = enemy.x;
-        const y = toPixelY(enemy.y);
-        ctx.drawImage(sprites.enemy, x, y);
+        const y = toPixelY(enemy.y) + 30;
+        ctx.drawImage(sprites.enemy, x, y, TILE_WIDTH, TILE_HEIGHT + 30);
       });
 
       // Draw key if not collected
@@ -209,28 +210,34 @@ export function useGameEngine(canvasRef) {
         ctx.drawImage(
           sprites.key,
           toPixelX(key.col),
-          toPixelY(key.row) + 10 // slight offset
+          toPixelY(key.row),
+          TILE_WIDTH,
+          TILE_HEIGHT
         );
       }
 
-      // Draw princess at the top
+      // Draw finish tile (princess)) at the top
       ctx.drawImage(
         sprites.princess,
         toPixelX(princess.col),
-        toPixelY(princess.row)
+        toPixelY(princess.row) + 20,
+        TILE_WIDTH,
+        TILE_HEIGHT + 26
       );
 
       // Draw player
       ctx.drawImage(
         sprites.player,
         toPixelX(player.col),
-        toPixelY(player.row)
+        toPixelY(player.row),
+        TILE_WIDTH,
+        TILE_HEIGHT + 70
       );
     }
 
     function drawHUD() {
       ctx.save();
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+      ctx.fillStyle = "rgba(0, 0, 0, 0)";
       ctx.fillRect(0, 0, CANVAS_WIDTH, 40);
 
       ctx.fillStyle = "#ffffff";
