@@ -42,6 +42,20 @@ function Game() {
 
   const coinsUsed = discounts.length;
   const coinsLeft = Math.max(0, MAX_COINS - coinsUsed);
+  useEffect(() => {
+  function handleEnter(e) {
+    if (e.key === "Enter") {
+      if (status === "won" && !isFinished && !isVendingOpen) {
+        goToNextLevel();
+      }
+    }
+  }
+
+  window.addEventListener("keydown", handleEnter);
+
+  return () => window.removeEventListener("keydown", handleEnter);
+}, [status, isFinished, isVendingOpen, goToNextLevel]);
+
   const totalDiscount = discounts.reduce((sum, d) => sum + d, 0);
 
   function generateDiscountWithRules(prevRare) {
@@ -100,6 +114,9 @@ console.log("CLICK");
     setDiscounts([]);
     setRareUsed({ 4: false, 5: false });
   }
+function handleCloseVending() {
+  setIsVendingOpen(false);
+}
 
   // When user clicks final CTA button
   function handleOrderWithDiscount() {
@@ -116,6 +133,7 @@ console.log("CLICK");
 
   return (
     <div
+    
       style={{
         maxWidth: "800px",
         width: "100%",
@@ -225,29 +243,56 @@ console.log("CLICK");
       </div>
 
           {/* --- Vending machine modal --- */}
-      {isVendingOpen && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(0, 0, 0, 0.7)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 999,
-          }}
-        >
-          <div
-            style={{
-              background: "linear-gradient(145deg, #24143a, #3b2560)",
-              borderRadius: "24px",
-              padding: "24px",
-              maxWidth: "720px",
-              width: "90%",
-              boxShadow: "0 20px 50px rgba(0, 0, 0, 0.6)",
-              color: "#fefefe",
-            }}
-          >
+     {isVendingOpen && (
+  <div
+    style={{
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0, 0, 0, 0.7)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 999,
+    }}
+  >
+    <div
+      style={{
+        position: "relative",              // ← обязательно!
+        background: "linear-gradient(145deg, #24143a, #3b2560)",
+        borderRadius: "24px",
+        padding: "24px",
+        maxWidth: "640px",
+        width: "90%",
+        boxShadow: "0 20px 50px rgba(0, 0, 0, 0.6)",
+        color: "#fefefe",
+      }}
+    >
+
+      {/* КНОПКА-КРЕСТИК */}
+      <button
+        onClick={handleCloseVending}
+        style={{
+          position: "absolute",
+          top: "12px",
+          right: "12px",
+          background: "rgba(255, 255, 255, 0.15)",
+          border: "none",
+          borderRadius: "50%",
+          width: "32px",
+          height: "32px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+          color: "#ffffff",
+          fontSize: "18px",
+          fontWeight: "bold",
+          backdropFilter: "blur(4px)",
+        }}
+      >
+        ×
+      </button>
+
             <h2 style={{ marginTop: 0, marginBottom: "8px", fontSize: "26px" }}>
               Bonus vending machine
             </h2>
@@ -363,7 +408,7 @@ console.log("CLICK");
                         opacity: 0.9,
                       }}
                     >
-                      x{coinsLeft >= 0 ? coinsLeft : 0} coins left
+                      {coinsLeft >= 0 ? coinsLeft : 0} coins left
                     </div>
                   </div>
                 </div>
