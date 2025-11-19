@@ -80,7 +80,8 @@ Subject: I won a discount!
 Body: Hi! I won a discount and would like to order a website.
 This removes friction, encourages outreach, and converts play into communication.
 
-<img width="827" height="391" alt="Screenshot 2025-11-16 at 9 52 06 PM" src="https://github.com/user-attachments/assets/8ab6d3eb-20d1-452a-b59f-62e0df7c1b02" />
+<img width="898" height="259" alt="Screenshot 2025-11-19 at 1 40 21 PM" src="https://github.com/user-attachments/assets/e612a426-6d8e-432b-b04e-fb60275d33ce" />
+
 
 
 🛠 Tech Stack
